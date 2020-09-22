@@ -1,31 +1,17 @@
 <template>
   <section class="AddUser">
-    <v-form>
-      <TextField label="Nome" @input="val => (user.name = val)" />
-
-      <TextField
-        label="CPF"
-        :mask="'###.###.###-##'"
-        @input="val => (user.cpf = val)"
-      />
-
-      <TextField
-        label="Data de nascimento"
-        @input="val => (user.birthday = val)"
-      />
-
-      <Button text="Salvar" class="AddUser__Save" @click="addUser(user)" />
-    </v-form>
+    <UserDataForm :user="user" :action="addUser" />
   </section>
 </template>
 
 <script>
-const TextField = () => import("@/components/Forms/TextField");
-const Button = () => import("@/components/Button");
+const UserDataForm = () => import("@/components/Forms/UserDataForm");
+
 import { mapActions } from "vuex";
+
 export default {
   name: "AddUser",
-  components: { TextField, Button },
+  components: { UserDataForm },
   props: {},
   data: () => ({
     user: {
@@ -48,8 +34,5 @@ export default {
 
 <style lang="scss" scoped>
 .AddUser {
-  &__Save {
-    float: right;
-  }
 }
 </style>

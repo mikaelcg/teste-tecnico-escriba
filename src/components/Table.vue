@@ -2,6 +2,10 @@
   <v-data-table
     :headers="headers"
     :items="items"
+    :loadingText="loadingText"
+    :no-data-text="noDataText"
+    :no-results-text="noResultsText"
+    @click:row="onRowClick"
     :footer-props="{
       'items-per-page-text': 'Por página'
     }"
@@ -35,7 +39,11 @@ export default {
   computed: {},
   created() {},
   mounted() {},
-  methods: {},
+  methods: {
+    onRowClick(item) {
+      this.$emit("onRowClick", item);
+    }
+  },
   watch: {}
 };
 </script>

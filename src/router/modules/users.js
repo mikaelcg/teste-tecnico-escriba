@@ -21,7 +21,7 @@ export default [
       },
       {
         name: "Editar usuário",
-        path: "/usuarios/editar",
+        path: "/usuarios/:id",
         component: () =>
           import(
             /* webpackChunkName: "edituser" */ "@/views/Users/EditUser.vue"

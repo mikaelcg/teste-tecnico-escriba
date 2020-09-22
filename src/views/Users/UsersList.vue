@@ -5,6 +5,7 @@
       :headers="headers"
       :loading="isLoading"
       :action="editUser"
+      @onRowClick="editUser"
       itemKey="id"
     />
   </section>
@@ -27,9 +28,9 @@ export default {
         sortable: true,
         value: "id"
       },
+      { text: "Nome", value: "nome" },
       { text: "CPF", value: "cpf", sortable: true },
       { text: "Data de nascimento", value: "dataNascimento" },
-      { text: "Nome", value: "nome" },
       { text: "", value: "actions", align: "end" }
     ]
   }),
@@ -50,7 +51,7 @@ export default {
     }),
 
     editUser(user) {
-      console.log(user);
+      this.$router.push(`/usuarios/${user.id}`);
     }
   },
   watch: {}

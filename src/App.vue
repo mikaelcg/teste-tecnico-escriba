@@ -1,7 +1,10 @@
 <template>
   <v-app class="App">
     <v-main>
+      <Modal />
       <Snackbar />
+
+      <!-- Componentes de Layout -->
       <NavigationDrawer />
       <AppBar />
 
@@ -20,10 +23,12 @@ const AppBar = () => import("@/components/LayoutComponents/AppBar.vue");
 
 const Snackbar = () => import("@/components/Snackbar");
 
+const Modal = () => import("@/components/Modal");
+
 export default {
   name: "App",
 
-  components: { NavigationDrawer, AppBar, Snackbar },
+  components: { NavigationDrawer, AppBar, Snackbar, Modal },
   props: {},
   data: () => ({}),
   computed: {},

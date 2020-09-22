@@ -33,6 +33,10 @@ export default {
     id: {
       required: false
     },
+    required: {
+      required: false,
+      type: Boolean
+    },
     autofocus: {
       required: false
     },

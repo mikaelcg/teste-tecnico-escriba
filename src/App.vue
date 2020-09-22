@@ -1,13 +1,25 @@
 <template>
-  <div class></div>
+  <v-app class="App">
+    <v-main>
+      <NavigationDrawer />
+      <AppBar />
+
+      <v-container>
+        <router-view></router-view>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-// import { mapActions, mapGetters, mapState } from 'vuex'
+const NavigationDrawer = () =>
+  import("@/components/LayoutComponents/NavigationDrawer.vue");
 
+const AppBar = () => import("@/components/LayoutComponents/AppBar.vue");
 export default {
   name: "App",
-  components: {},
+
+  components: { NavigationDrawer, AppBar },
   props: {},
   data: () => ({}),
   computed: {},
@@ -19,5 +31,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-//@import "@/assets/variables.scss";
+.App {
+  background-color: #efefef !important;
+}
 </style>

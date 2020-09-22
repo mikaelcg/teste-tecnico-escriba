@@ -1,26 +1,46 @@
 <template>
   <section class="UsersList">
-    <Table
-      :items="users"
-      icon="mdi-dots-horizontal"
-      :headers="headers"
-      :loading="isLoading"
-      :actions="actionsList"
-      @onRowClick="editUser"
-      itemKey="id"
-    />
+    <v-card>
+      <v-card-title class="UsersList__TableTitle">
+        Listagem de usuários cadastrados
+        <v-spacer></v-spacer>
+
+        <TextField
+          id="search"
+          name="search"
+          clearable
+          hideDetails
+          label="Pesquisar"
+          preppendInnerIcon="mdi-magnify"
+          @input="val => (search = val)"
+        />
+      </v-card-title>
+      <Table
+        icon="mdi-dots-horizontal"
+        itemKey="id"
+        :search="search"
+        :items="users"
+        :headers="headers"
+        :loading="isLoading"
+        :actions="actionsList"
+        @onRowClick="editUser"
+      />
+    </v-card>
   </section>
 </template>
 
 <script>
 import { mapActions, mapGetters } from "vuex";
 const Table = () => import("@/components/Table");
+const TextField = () => import("@/components/Forms/TextField");
 export default {
   name: "UsersList",
-  components: { Table },
+  components: { Table, TextField },
   props: {},
   data: () => ({
     isLoading: false,
+
+    search: null,
 
     headers: [
       {
@@ -29,9 +49,9 @@ export default {
         sortable: true,
         value: "id"
       },
-      { text: "Nome", value: "nome" },
+      { text: "Nome", value: "nome", sortable: true },
       { text: "CPF", value: "cpf", sortable: true },
-      { text: "Data de nascimento", value: "dataNascimento" },
+      { text: "Data de nascimento", value: "dataNascimento", sortable: true },
       { text: "", value: "actions", align: "end" }
     ]
   }),
@@ -76,5 +96,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-//@import "@/assets/variables.scss";
+.UsersList {
+  &__TableTitle {
+    display: flex;
+    align-items: center;
+  }
+}
 </style>

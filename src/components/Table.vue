@@ -3,6 +3,7 @@
     :headers="headers"
     :items="items"
     :icon="icon"
+    :search="search"
     :loadingText="loadingText"
     :no-data-text="noDataText"
     :no-results-text="noResultsText"
@@ -48,8 +49,9 @@ export default {
     headers: { required: true },
     loading: { required: true },
     itemKey: { required: true },
-    icon: { required: false },
     items: { required: true },
+    icon: { required: false },
+    search: { required: false },
     actions: { required: true, type: Array },
     loadingText: { required: false, default: "Carregando..." },
     noDataText: { required: false, default: "Não há registros" },

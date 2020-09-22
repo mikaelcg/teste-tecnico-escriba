@@ -7,6 +7,7 @@
     :color="color"
     :readonly="readonly"
     :disabled="disabled"
+    :hide-details="hideDetails"
     :clearable="clearable"
     :placeholder="placeholder"
     :label="label"
@@ -61,7 +62,8 @@ export default {
     },
     hideDetails: {
       required: false,
-      default: true
+      type: Boolean,
+      default: false
     },
     color: {
       required: false,

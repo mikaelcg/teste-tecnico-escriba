@@ -1,6 +1,7 @@
 <template>
   <v-app class="App">
     <v-main>
+      <Snackbar />
       <NavigationDrawer />
       <AppBar />
 
@@ -16,10 +17,13 @@ const NavigationDrawer = () =>
   import("@/components/LayoutComponents/NavigationDrawer.vue");
 
 const AppBar = () => import("@/components/LayoutComponents/AppBar.vue");
+
+const Snackbar = () => import("@/components/Snackbar");
+
 export default {
   name: "App",
 
-  components: { NavigationDrawer, AppBar },
+  components: { NavigationDrawer, AppBar, Snackbar },
   props: {},
   data: () => ({}),
   computed: {},

@@ -34,7 +34,7 @@ export default {
       {
         icon: "mdi-account-outline",
         text: "Usuários",
-        to: "/usuarios"
+        to: "/"
       },
       {
         icon: "mdi-domain",

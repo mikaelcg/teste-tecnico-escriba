@@ -1,5 +1,5 @@
 export default {
-  getNavigationDrawerStatus: (state) => {
+  getNavigationDrawerStatus: state => {
     return state.navigationDrawer;
-  },
+  }
 };

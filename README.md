@@ -1,6 +1,7 @@
 # projeto-escriba
 
 # Vue CLI v4.5.6
+# Axios - Vuetify - Vue Router - VueX - v-mask 
 
 ## Project setup
 

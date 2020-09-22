@@ -1,6 +1,13 @@
 <template>
   <section class="UsersList">
-    <v-card>
+    <Button
+      text="Adicionar"
+      color="success"
+      class="UsersList__AddNew"
+      @click="createUser"
+    />
+
+    <v-card class="UsersList__Card">
       <v-card-title class="UsersList__TableTitle">
         Listagem de usuários cadastrados
         <v-spacer></v-spacer>
@@ -33,9 +40,10 @@
 import { mapActions, mapGetters } from "vuex";
 const Table = () => import("@/components/Table");
 const TextField = () => import("@/components/Forms/TextField");
+const Button = () => import("@/components/Buttons/Button");
 export default {
   name: "UsersList",
-  components: { Table, TextField },
+  components: { Table, TextField, Button },
   props: {},
   data: () => ({
     isLoading: false,
@@ -70,7 +78,7 @@ export default {
         {
           text: "Excluir",
           icon: "mdi-delete",
-          action: async user => await this.deleteUser(user)
+          action: async user => await this.deleteUser(user.id)
         }
       ];
     }
@@ -80,12 +88,16 @@ export default {
     await this.getUsers();
     this.isLoading = false;
   },
-  mounted() {},
+
   methods: {
     ...mapActions("User", {
       getUsers: "getUsers",
       deleteUser: "deleteUser"
     }),
+
+    createUser() {
+      this.$router.push(`/usuarios/novo`);
+    },
 
     editUser(user) {
       this.$router.push(`/usuarios/${user.id}`);
@@ -97,9 +109,21 @@ export default {
 
 <style lang="scss" scoped>
 .UsersList {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+
+  &__Card {
+    width: 100%;
+  }
+
   &__TableTitle {
     display: flex;
     align-items: center;
+  }
+
+  &__AddNew {
+    margin: 0 0 15px auto;
   }
 }
 </style>

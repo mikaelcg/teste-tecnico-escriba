@@ -123,6 +123,8 @@ export default {
           action: async () => {
             await users.deleteUser(payload);
 
+            await dispatch("getUsers");
+
             await dispatch(
               "Snackbar/setSnackbar",
               {
@@ -134,7 +136,10 @@ export default {
                 root: true
               }
             );
-            return router.push("/");
+
+            if (router.history.current.path !== "/") router.push("/");
+
+            return;
           }
         },
         {

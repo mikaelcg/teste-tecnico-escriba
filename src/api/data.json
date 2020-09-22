@@ -1,12 +1,5 @@
 {
-  "pessoas": [
-    {
-      "nome": "Mikael",
-      "cpf": "077.484.669-04",
-      "dataNascimento": "06/03/1998",
-      "id": 1
-    }
-  ],
+  "pessoas": [],
   "produtos": [
     {
       "id": 1,

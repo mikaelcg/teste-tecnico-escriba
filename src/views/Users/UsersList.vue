@@ -5,8 +5,6 @@
       :items="desserts"
       :search="search"
     ></v-data-table>
-
-    <v-btn>Adicionar</v-btn>
   </section>
 </template>
 

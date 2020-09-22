@@ -48,7 +48,7 @@ export default {
     try {
       await users.post(payload);
 
-      dispatch(
+      await dispatch(
         "Snackbar/setSnackbar",
         {
           status: true,
@@ -82,7 +82,7 @@ export default {
     try {
       await users.put(payload);
 
-      dispatch(
+      await dispatch(
         "Snackbar/setSnackbar",
         {
           status: true,

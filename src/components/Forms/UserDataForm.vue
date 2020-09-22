@@ -57,13 +57,14 @@
         text="Excluir"
         outlined
         color="error"
-        class="UserDataForm__Save"
+        class="UserDataForm__Delete"
         @click="deleteUser(user.id)"
         :loading="isLoading"
       />
 
       <Button
         text="Salvar"
+        color="success"
         class="UserDataForm__Save"
         @click="handleAction"
         :loading="isLoading"
@@ -74,7 +75,7 @@
 
 <script>
 const TextField = () => import("@/components/Forms/TextField");
-const Button = () => import("@/components/Button");
+const Button = () => import("@/components/Buttons/Button");
 import { mapActions } from "vuex";
 
 export default {
@@ -149,6 +150,10 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+
+  &__Save {
+    margin-left: auto;
   }
 }
 </style>

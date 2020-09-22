@@ -30,7 +30,7 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-import Button from "@/components/Button";
+import Button from "@/components/Buttons/Button";
 
 export default {
   name: "Modal",

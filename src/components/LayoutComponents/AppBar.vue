@@ -1,7 +1,7 @@
 <template>
   <v-app-bar app color="indigo" dark>
     <v-app-bar-nav-icon @click="handleNavigationDrawer"></v-app-bar-nav-icon>
-    <v-toolbar-title>{{ title }}</v-toolbar-title>
+    <v-toolbar-title>Projeto Escriba</v-toolbar-title>
   </v-app-bar>
 </template>
 

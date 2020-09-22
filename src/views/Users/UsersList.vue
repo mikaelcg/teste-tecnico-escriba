@@ -2,9 +2,10 @@
   <section class="UsersList">
     <Table
       :items="users"
+      icon="mdi-dots-horizontal"
       :headers="headers"
       :loading="isLoading"
-      :action="editUser"
+      :actions="actionsList"
       @onRowClick="editUser"
       itemKey="id"
     />
@@ -37,7 +38,22 @@ export default {
   computed: {
     ...mapGetters("User", {
       users: "getUsers"
-    })
+    }),
+
+    actionsList() {
+      return [
+        {
+          text: "Editar",
+          icon: "mdi-pencil",
+          action: user => this.editUser(user)
+        },
+        {
+          text: "Excluir",
+          icon: "mdi-delete",
+          action: async user => await this.deleteUser(user)
+        }
+      ];
+    }
   },
   async created() {
     this.isLoading = true;
@@ -47,7 +63,8 @@ export default {
   mounted() {},
   methods: {
     ...mapActions("User", {
-      getUsers: "getUsers"
+      getUsers: "getUsers",
+      deleteUser: "deleteUser"
     }),
 
     editUser(user) {

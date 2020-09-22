@@ -9,6 +9,7 @@
       <AppBar />
 
       <v-container>
+        <PageHeader />
         <router-view></router-view>
       </v-container>
     </v-main>
@@ -21,6 +22,8 @@ const NavigationDrawer = () =>
 
 const AppBar = () => import("@/components/LayoutComponents/AppBar.vue");
 
+const PageHeader = () => import("@/components/LayoutComponents/PageHeader.vue");
+
 const Snackbar = () => import("@/components/Snackbar");
 
 const Modal = () => import("@/components/Modal");
@@ -28,7 +31,7 @@ const Modal = () => import("@/components/Modal");
 export default {
   name: "App",
 
-  components: { NavigationDrawer, AppBar, Snackbar, Modal },
+  components: { NavigationDrawer, AppBar, Snackbar, Modal, PageHeader },
   props: {},
   data: () => ({}),
   computed: {},
